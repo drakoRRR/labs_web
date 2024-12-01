@@ -1,0 +1,6 @@
+{
+  "currency": "UAH",
+  "applyDiscounts": true,
+  "realtimeUpdate": true,
+  "products": [101, 102, 103]
+}

@@ -83,76 +83,47 @@
                 </div>
                 <h2 class="text-[#141C24] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Dresses</h2>
                 <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-                    <div class="flex flex-col gap-3 pb-3">
-                        <div
-                                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                                style='background-image: url("https://cdn.usegalileo.ai/replicate/519d907b-4bad-4d5e-a761-a9bece0dc221.png");'
-                        ></div>
-                        <div>
-                            <p class="text-[#141C24] text-base font-medium leading-normal">Flowy Maxi Dresses</p>
-                            <p class="text-[#3F5374] text-sm font-normal leading-normal">$95</p>
-                            <p class="text-[#3F5374] text-sm font-normal leading-normal">4.5/5</p>
-                        </div>
+                    <div id="product-list" class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
                     </div>
-                    <div class="flex flex-col gap-3 pb-3">
-                        <div
-                                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/773afa23-4ce8-461e-8922-71276c4cb9c1.png");'
-                        ></div>
-                        <div>
-                            <p class="text-[#141C24] text-base font-medium leading-normal">Elegant Midi Dresses</p>
-                            <p class="text-[#3F5374] text-sm font-normal leading-normal">$85</p>
-                            <p class="text-[#3F5374] text-sm font-normal leading-normal">4.6/5</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-3 pb-3">
-                        <div
-                                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/dd7ddc60-0de3-4986-a83e-8a7e63cc22c2.png");'
-                        ></div>
-                        <div>
-                            <p class="text-[#141C24] text-base font-medium leading-normal">Classic A-Line Dresses</p>
-                            <p class="text-[#3F5374] text-sm font-normal leading-normal">$75</p>
-                            <p class="text-[#3F5374] text-sm font-normal leading-normal">4.7/5</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-3 pb-3">
-                        <div
-                                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/8d0fe442-e833-4a99-89f8-a77a81ec6435.png");'
-                        ></div>
-                        <div>
-                            <p class="text-[#141C24] text-base font-medium leading-normal">Stylish Sheath Dresses</p>
-                            <p class="text-[#3F5374] text-sm font-normal leading-normal">$65</p>
-                            <p class="text-[#3F5374] text-sm font-normal leading-normal">4.8/5</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-3 pb-3">
-                        <div
-                                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/8fa7daf2-1f65-4320-a65c-fa2cc390ac6d.png");'
-                        ></div>
-                        <div>
-                            <p class="text-[#141C24] text-base font-medium leading-normal">Boho-Chic Tunic Dresses</p>
-                            <p class="text-[#3F5374] text-sm font-normal leading-normal">$55</p>
-                            <p class="text-[#3F5374] text-sm font-normal leading-normal">4.9/5</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-3 pb-3">
-                        <div
-                                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/889415ee-0e63-4e2b-8282-40c77d3ff9bc.png");'
-                        ></div>
-                        <div>
-                            <p class="text-[#141C24] text-base font-medium leading-normal">Sophisticated Wrap Dresses</p>
-                            <p class="text-[#3F5374] text-sm font-normal leading-normal">$45</p>
-                            <p class="text-[#3F5374] text-sm font-normal leading-normal">4.4/5</p>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    async function fetchAndDisplayProducts() {
+        try {
+            const response = await fetch('http://localhost:3000/products');
+            const data = await response.json();
+            console.log(data);
+
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = ''; // Clear existing content
+
+            data.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'flex flex-col gap-3 pb-3';
+                productCard.innerHTML = `
+                    <div
+                        class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
+                        style='background-image: url("https://via.placeholder.com/150");'
+                    ></div>
+                    <div>
+                        <p class="text-[#141C24] text-base font-medium leading-normal">${product.name}</p>
+                        <p class="text-[#3F5374] text-sm font-normal leading-normal">$${product.price}</p>
+                        <p class="text-[#6B7280] text-sm font-normal leading-normal">In Stock: ${product.stock}</p>
+                    </div>
+                `;
+                productList.appendChild(productCard);
+            });
+        } catch (error) {
+            console.error('Error fetching products:', error);
+        }
+    }
+
+    fetchAndDisplayProducts();
+</script>
 </body>
 </html>

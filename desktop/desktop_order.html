@@ -1,225 +1,157 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
   <link
           rel="stylesheet"
-          as="style"
-          onload="this.rel='stylesheet'"
           href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
   />
-
-  <title>Order</title>
-  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
-
+  <title>Order Summary</title>
+  <link rel="icon" href="data:image/x-icon;base64," type="image/x-icon" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 </head>
-<body>
-<div
-        class="relative flex size-full min-h-screen flex-col bg-[#F8F9FB] group/design-root overflow-x-hidden"
-        style="--checkbox-tick-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(20,28,36)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e'); --radio-dot-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(244,199,83)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3ccircle cx=%278%27 cy=%278%27 r=%273%27/%3e%3c/svg%3e'); font-family: &quot;Plus Jakarta Sans&quot;, &quot;Noto Sans&quot;, sans-serif;"
->
-  <div class="layout-container flex h-full grow flex-col">
-    <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#E4E9F1] px-10 py-3">
-      <div class="flex items-center gap-8">
-        <div class="flex items-center gap-4 text-[#141C24]">
-          <div class="size-4">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                      d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"
-                      fill="currentColor"
-              ></path>
-            </svg>
-          </div>
-          <h2 class="text-[#141C24] text-lg font-bold leading-tight tracking-[-0.015em]">Fashion House</h2>
-        </div>
-        <div class="flex items-center gap-9">
-          <a class="text-[#141C24] text-sm font-medium leading-normal" href="#">Women</a>
-          <a class="text-[#141C24] text-sm font-medium leading-normal" href="#">Men</a>
-          <a class="text-[#141C24] text-sm font-medium leading-normal" href="#">Kids</a>
-          <a class="text-[#141C24] text-sm font-medium leading-normal" href="#">Beauty</a>
-          <a class="text-[#141C24] text-sm font-medium leading-normal" href="#">Home</a>
-        </div>
+<body class="bg-[#F8F9FB] font-sans">
+<!-- Header -->
+<header class="border-b border-solid border-[#E4E9F1] px-10 py-4 flex justify-between items-center bg-white">
+  <div class="flex items-center gap-6">
+    <div class="flex items-center gap-3">
+      <div class="text-[#141C24]">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+          <path
+                  d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"
+                  fill="currentColor"
+          ></path>
+        </svg>
       </div>
-      <div class="flex flex-1 justify-end gap-8">
-        <label class="flex flex-col min-w-40 !h-10 max-w-64">
-          <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
-            <div
-                    class="text-[#3F5374] flex border-none bg-[#E4E9F1] items-center justify-center pl-4 rounded-l-lg border-r-0"
-                    data-icon="MagnifyingGlass"
-                    data-size="24px"
-                    data-weight="regular"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                <path
-                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
-                ></path>
-              </svg>
-            </div>
-            <input
-                    placeholder="Search"
-                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#141C24] focus:outline-0 focus:ring-0 border-none bg-[#E4E9F1] focus:border-none h-full placeholder:text-[#3F5374] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
-                    value=""
-            />
-          </div>
-        </label>
-        <button
-                class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#E4E9F1] text-[#141C24] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
-        >
-          <div class="text-[#141C24]" data-icon="ShoppingCart" data-size="20px" data-weight="regular">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-              <path
-                      d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM96,204a12,12,0,1,1-12-12A12,12,0,0,1,96,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,192,204Zm4-74.57A8,8,0,0,1,188.1,136H69.22L57.59,72H206.41Z"
-              ></path>
-            </svg>
-          </div>
-        </button>
-      </div>
-    </header>
-    <div class="px-40 flex flex-1 justify-center py-5">
-      <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-        <h2 class="text-[#141C24] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Order Summary</h2>
-        <div class="flex gap-4 bg-[#F8F9FB] px-4 py-3">
-          <div
-                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[70px]"
-                  style='background-image: url("https://cdn.usegalileo.ai/stability/ad6ad076-2c22-44af-8f46-dd5b27fb92e7.png");'
-          ></div>
-          <div class="flex flex-1 flex-col justify-center">
-            <p class="text-[#141C24] text-base font-medium leading-normal">Women's Sleeveless Dress</p>
-            <p class="text-[#3F5374] text-sm font-normal leading-normal">$120.00</p>
-            <p class="text-[#3F5374] text-sm font-normal leading-normal">Color: Blue, Size: M, Quantity: 1</p>
-          </div>
-        </div>
-        <div class="flex gap-4 bg-[#F8F9FB] px-4 py-3">
-          <div
-                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[70px]"
-                  style='background-image: url("https://cdn.usegalileo.ai/stability/ce2d508a-2e62-4700-bcb5-1d604529bb38.png");'
-          ></div>
-          <div class="flex flex-1 flex-col justify-center">
-            <p class="text-[#141C24] text-base font-medium leading-normal">Women's Sleeveless Dress</p>
-            <p class="text-[#3F5374] text-sm font-normal leading-normal">$120.00</p>
-            <p class="text-[#3F5374] text-sm font-normal leading-normal">Color: Blue, Size: M, Quantity: 1</p>
-          </div>
-        </div>
-        <div class="p-4">
-          <div class="flex justify-between gap-x-6 py-2">
-            <p class="text-[#3F5374] text-sm font-normal leading-normal">Subtotal</p>
-            <p class="text-[#141C24] text-sm font-normal leading-normal text-right">$240.00</p>
-          </div>
-          <div class="flex justify-between gap-x-6 py-2">
-            <p class="text-[#3F5374] text-sm font-normal leading-normal">Estimated Shipping</p>
-            <p class="text-[#141C24] text-sm font-normal leading-normal text-right">$0.00</p>
-          </div>
-          <div class="flex justify-between gap-x-6 py-2">
-            <p class="text-[#3F5374] text-sm font-normal leading-normal">Estimated Tax</p>
-            <p class="text-[#141C24] text-sm font-normal leading-normal text-right">$20.70</p>
-          </div>
-          <div class="flex justify-between gap-x-6 py-2">
-            <p class="text-[#3F5374] text-sm font-normal leading-normal">Total</p>
-            <p class="text-[#141C24] text-sm font-normal leading-normal text-right">$260.70</p>
-          </div>
-        </div>
-        <h2 class="text-[#141C24] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Shipping</h2>
-        <div class="flex items-center gap-4 bg-[#F8F9FB] px-4 min-h-[72px] py-2">
-          <div class="flex flex-col justify-center">
-            <p class="text-[#141C24] text-base font-medium leading-normal line-clamp-1">Standard (Arrives by Fri, Jul 21)</p>
-            <p class="text-[#3F5374] text-sm font-normal leading-normal line-clamp-2">Bradley Johnson123 Main StSan Francisco, CA 94102, USABradley Johnson(123) 123-1234</p>
-          </div>
-        </div>
-        <h2 class="text-[#141C24] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Payment</h2>
-        <div class="flex flex-col gap-3 p-4">
-          <label class="flex items-center gap-4 rounded-lg border border-solid border-[#D4DBE8] p-[15px]">
-            <input
-                    type="radio"
-                    class="h-5 w-5 border-2 border-[#D4DBE8] bg-transparent text-transparent checked:border-[#F4C753] checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-[#F4C753]"
-                    name="497c4152-06a7-4f5b-9cfd-b7d0075be8df"
-                    checked=""
-            />
-            <div class="flex grow flex-col"><p class="text-[#141C24] text-sm font-medium leading-normal">Credit or Debit Card</p></div>
-          </label>
-          <label class="flex items-center gap-4 rounded-lg border border-solid border-[#D4DBE8] p-[15px]">
-            <input
-                    type="radio"
-                    class="h-5 w-5 border-2 border-[#D4DBE8] bg-transparent text-transparent checked:border-[#F4C753] checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-[#F4C753]"
-                    name="497c4152-06a7-4f5b-9cfd-b7d0075be8df"
-            />
-            <div class="flex grow flex-col"><p class="text-[#141C24] text-sm font-medium leading-normal">PayPal</p></div>
-          </label>
-          <label class="flex items-center gap-4 rounded-lg border border-solid border-[#D4DBE8] p-[15px]">
-            <input
-                    type="radio"
-                    class="h-5 w-5 border-2 border-[#D4DBE8] bg-transparent text-transparent checked:border-[#F4C753] checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-[#F4C753]"
-                    name="497c4152-06a7-4f5b-9cfd-b7d0075be8df"
-            />
-            <div class="flex grow flex-col"><p class="text-[#141C24] text-sm font-medium leading-normal">Klarna</p></div>
-          </label>
-          <label class="flex items-center gap-4 rounded-lg border border-solid border-[#D4DBE8] p-[15px]">
-            <input
-                    type="radio"
-                    class="h-5 w-5 border-2 border-[#D4DBE8] bg-transparent text-transparent checked:border-[#F4C753] checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-[#F4C753]"
-                    name="497c4152-06a7-4f5b-9cfd-b7d0075be8df"
-            />
-            <div class="flex grow flex-col"><p class="text-[#141C24] text-sm font-medium leading-normal">Google Pay</p></div>
-          </label>
-        </div>
-        <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-          <label class="flex flex-col min-w-40 flex-1">
-            <input
-                    placeholder="Card number"
-                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#141C24] focus:outline-0 focus:ring-0 border border-[#D4DBE8] bg-[#F8F9FB] focus:border-[#D4DBE8] h-14 placeholder:text-[#3F5374] p-[15px] text-base font-normal leading-normal"
-                    value=""
-            />
-          </label>
-        </div>
-        <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-          <label class="flex flex-col min-w-40 flex-1">
-            <input
-                    placeholder="MM/YY"
-                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#141C24] focus:outline-0 focus:ring-0 border border-[#D4DBE8] bg-[#F8F9FB] focus:border-[#D4DBE8] h-14 placeholder:text-[#3F5374] p-[15px] text-base font-normal leading-normal"
-                    value=""
-            />
-          </label>
-          <label class="flex flex-col min-w-40 flex-1">
-            <input
-                    placeholder="CVV"
-                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#141C24] focus:outline-0 focus:ring-0 border border-[#D4DBE8] bg-[#F8F9FB] focus:border-[#D4DBE8] h-14 placeholder:text-[#3F5374] p-[15px] text-base font-normal leading-normal"
-                    value=""
-            />
-          </label>
-        </div>
-        <div class="px-4">
-          <label class="flex gap-x-3 py-3 flex-row">
-            <input
-                    type="checkbox"
-                    class="h-5 w-5 rounded border-[#D4DBE8] border-2 bg-transparent text-[#F4C753] checked:bg-[#F4C753] checked:border-[#F4C753] checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-[#D4DBE8] focus:outline-none"
-            />
-            <p class="text-[#141C24] text-base font-normal leading-normal">Save credit card for later use</p>
-          </label>
-          <label class="flex gap-x-3 py-3 flex-row">
-            <input
-                    type="checkbox"
-                    class="h-5 w-5 rounded border-[#D4DBE8] border-2 bg-transparent text-[#F4C753] checked:bg-[#F4C753] checked:border-[#F4C753] checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-[#D4DBE8] focus:outline-none"
-                    checked=""
-            />
-            <p class="text-[#141C24] text-base font-normal leading-normal">Billing address same as shipping</p>
-          </label>
-        </div>
-        <div class="flex justify-stretch">
-          <div class="flex flex-1 gap-3 flex-wrap px-4 py-3 justify-end">
-            <button
-                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#F4C753] text-[#141C24] text-sm font-bold leading-normal tracking-[0.015em]"
-            >
-              <span class="truncate">Place Order</span>
-            </button>
-            <button
-                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#E4E9F1] text-[#141C24] text-sm font-bold leading-normal tracking-[0.015em]"
-            >
-              <span class="truncate">Continue Shopping</span>
-            </button>
-          </div>
-        </div>
+      <h1 class="text-lg font-bold text-[#141C24] tracking-tight">Fashion House</h1>
+    </div>
+    <nav class="hidden lg:flex gap-6">
+      <a href="#" class="text-sm text-[#141C24] font-medium hover:text-[#3F5374]">Women</a>
+      <a href="#" class="text-sm text-[#141C24] font-medium hover:text-[#3F5374]">Men</a>
+      <a href="#" class="text-sm text-[#141C24] font-medium hover:text-[#3F5374]">Kids</a>
+      <a href="#" class="text-sm text-[#141C24] font-medium hover:text-[#3F5374]">Beauty</a>
+      <a href="#" class="text-sm text-[#141C24] font-medium hover:text-[#3F5374]">Home</a>
+    </nav>
+  </div>
+  <div class="flex gap-4 items-center">
+    <div class="relative w-64">
+      <input
+              type="text"
+              placeholder="Search"
+              class="w-full px-4 py-2 text-sm bg-[#E4E9F1] rounded-lg placeholder-[#3F5374] focus:outline-none"
+      />
+      <div class="absolute top-2 right-2 text-[#3F5374]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+          <path
+                  d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+          ></path>
+        </svg>
       </div>
     </div>
+    <button class="flex items-center justify-center w-10 h-10 bg-[#E4E9F1] rounded-full text-[#141C24]">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+        <path
+                d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM96,204a12,12,0,1,1-12-12A12,12,0,0,1,96,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,192,204Zm4-74.57A8,8,0,0,1,188.1,136H69.22L57.59,72H206.41Z"
+        ></path>
+      </svg>
+    </button>
   </div>
-</div>
+</header>
+
+<!-- Main Content -->
+<main class="px-10 py-6">
+  <section>
+    <h2 class="text-[22px] font-bold text-[#141C24] mb-4">Order Summary</h2>
+    <div id="cart-products" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Products will be injected here -->
+    </div>
+  </section>
+  <section class="mt-8">
+    <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow">
+      <p class="text-sm text-[#3F5374]">Subtotal:</p>
+      <p id="subtotal" class="text-sm text-[#141C24] font-medium">$0.00</p>
+    </div>
+  </section>
+  <section class="mt-6">
+    <h2 class="text-[22px] font-bold text-[#141C24] mb-4">Payment Options</h2>
+    <div class="flex flex-col gap-4">
+      <label class="flex items-center gap-3">
+        <input type="radio" name="payment-method" class="h-5 w-5" checked />
+        <span class="text-sm text-[#141C24]">Credit or Debit Card</span>
+      </label>
+      <label class="flex items-center gap-3">
+        <input type="radio" name="payment-method" class="h-5 w-5" />
+        <span class="text-sm text-[#141C24]">PayPal</span>
+      </label>
+    </div>
+  </section>
+  <div class="flex justify-end mt-8">
+    <button class="px-6 py-2 bg-[#F4C753] text-sm font-bold text-[#141C24] rounded-lg shadow">Place Order</button>
+  </div>
+</main>
+
+<script>
+  const cartData = {
+    currency: "UAH",
+    applyDiscounts: true,
+    realtimeUpdate: true,
+    products: [101, 102, 103], // Product IDs in the cart
+  };
+
+  async function loadCart() {
+    try {
+      const response = await fetch("http://localhost:3000/products");
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+      const data = await response.json();
+
+      const filteredProducts = data.filter((product) =>
+              cartData.products.includes(product.id)
+      );
+
+      const cartContainer = document.querySelector("#cart-products");
+      const subtotalElement = document.querySelector("#subtotal");
+
+      let subtotal = 0;
+
+      cartContainer.innerHTML = "";
+
+      filteredProducts.forEach((product) => {
+        subtotal += product.price;
+
+        const productItem = document.createElement("div");
+        productItem.className =
+                "flex flex-col lg:flex-row gap-4 bg-white shadow rounded-lg p-4";
+
+        productItem.innerHTML = `
+        <div
+          class="bg-center bg-no-repeat bg-cover rounded-lg aspect-square w-full lg:w-1/4"
+          style='background-image: url("https://via.placeholder.com/150");'
+        ></div>
+        <div class="flex flex-1 flex-col justify-center">
+          <p class="text-[#141C24] text-base font-medium">${product.name}</p>
+          <p class="text-[#3F5374] text-sm font-normal">Price: $${product.price}</p>
+          <p class="text-[#3F5374] text-sm font-normal">Stock: ${product.stock}</p>
+        </div>
+      `;
+
+        cartContainer.appendChild(productItem);
+      });
+
+      subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+    } catch (error) {
+      console.error("Error loading cart:", error);
+
+      const cartContainer = document.querySelector("#cart-products");
+      cartContainer.innerHTML =
+              '<p class="text-red-500">Failed to load cart items. Please try again later.</p>';
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", loadCart);
+</script>
+
 </body>
 </html>
